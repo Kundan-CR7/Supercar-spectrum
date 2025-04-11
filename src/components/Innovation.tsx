@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Pic1 from "../assets/revuelto.jpg"; 
+import Pic1 from "../assets/Lotus.jpg"; 
 import Pic2 from "../assets/TuaTara_SSC.jpg"; 
 import Pic3 from "../assets/Urus.jpg"; 
 import "../index.css";
