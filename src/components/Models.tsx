@@ -5,106 +5,130 @@ import { motion } from 'framer-motion';
 // Car Images
 import Pic1 from "/cars/Pic1.jpg";
 import Pic2 from "/cars/Pic2.jpg";
-import Pic3 from "/cars/Pic3.avif";
-import Pic4 from "/cars/Pic4.avif";
-import Pic5 from "/cars/Pic5.avif";
-import Pic6 from "/cars/Pic6.avif";
-import Pic7 from "/cars/Pic7.avif";
-import Pic8 from "/cars/Pic8.webp";
-import Pic9 from "/cars/Pic9.webp";
-import Pic10 from "/cars/Pic10.avif";
+import Pic3 from "/cars/Pic3.jpg";
+import Pic4 from "/cars/Pic44.jpg";
+import Pic5 from "/cars/Pic5.jpg";
+import Pic6 from "/cars/Pic6.jpg";
+import Pic7 from "/cars/Pic7.jpg";
+import Pic8 from "/cars/Pic8.jpg";
+import Pic9 from "/cars/Pic9.jpg";
+import Pic10 from "/cars/Pic10.jpg";
 import Pic11 from "/cars/Pic11.jpg";
 
 // Brand Logos
 import LamborghiniLogo from "../assets/brands/Lamborghini.svg";
 import SSCLogo from "../assets/brands/SSC.svg";
-import BugattiLogo from "../assets/brands/Bugatti.svg"
-import AstonMartinLogo from "../assets/brands/Aston Martin.svg"
-import DodgeLogo from "../assets/brands/Dodge.svg"
-import FerrariLogo from "../assets/brands/Ferrari.svg"
-import JaguarLogo from "../assets/brands/Jaguar.svg"
-import LexusLogo from "../assets/brands/Lexus.svg"
-import McLarenLogo from "../assets/brands/McLaren.svg"
-import MustangLogo from "../assets/brands/Mustang.svg"
-import PorsheaLogo from "../assets/brands/Porshea.svg"
+import BugattiLogo from "../assets/brands/Bugatti.svg";
+import AstonMartinLogo from "../assets/brands/Aston Martin.svg";
+import DodgeLogo from "../assets/brands/Dodge.svg";
+import FerrariLogo from "../assets/brands/Ferrari.svg";
+import JaguarLogo from "../assets/brands/Jaguar.svg";
+import LexusLogo from "../assets/brands/Lexus.svg";
+import McLarenLogo from "../assets/brands/McLaren.svg";
+import MustangLogo from "../assets/brands/Mustang.svg";
+import PorsheaLogo from "../assets/brands/Porshea.svg";
+import KoenigseggLogo from "../assets/brands/KoenigseggLogo.svg";
 
 const allModels = [
   {
-    name: "Aventador Ultimae",
+    name: "Huracán STO",
     brand: "Lamborghini",
     image: Pic1,
     logo: LamborghiniLogo,
-    description: "A V12 farewell — ultimate expression of Lamborghini's raw power."
+    description: "Track-focused precision meets street-legal aggression — the ultimate Huracán experience.",
+    tags: ["V10", "Track-Oriented"],
+    speedLabel: "Top Speed: 310 km/h"
   },
   {
-    name: "Tuatara",
-    brand: "SSC",
+    name: "Jesko",
+    brand: "Koenigsegg",
     image: Pic2,
-    logo: SSCLogo,
-    description: "Pushing the limits — the pursuit of world speed records."
-  },
+    logo: KoenigseggLogo, // make sure this logo variable is imported or defined
+    description: "A marvel of Swedish engineering — built for both extreme speed and track performance.",
+    tags: ["Hypercar", "Track & Speed"],
+    speedLabel: "Top Speed: 482+ km/h"
+  }
+  ,
   {
     name: "Chiron Pur Sport",
     brand: "Bugatti",
     image: Pic3,
     logo: BugattiLogo,
-    description: "Precision handling meets Bugatti power and elegance."
+    description: "Precision handling meets Bugatti power and elegance.",
+    tags: ["Luxury", "W16"],
+    speedLabel: "Top Speed: 350 km/h"
   },
   {
-    name: "Valkyrie AMR Pro",
+    name: "Vulcan AMR Pro",
     brand: "Aston Martin",
     image: Pic4,
     logo: AstonMartinLogo,
-    description: "Track-only performance — a race car reborn for the elite."
+    description: "Track-exclusive beast — raw power and aero mastery unleashed.",
+    tags: ["Track", "Race Spec"],
+    speedLabel: "Top Speed: 360 km/h"
   },
   {
     name: "Challenger SRT Demon",
     brand: "Dodge",
     image: Pic5,
     logo: DodgeLogo,
-    description: "Drag strip dominance — American muscle, unleashed."
+    description: "Drag strip dominance — American muscle, unleashed.",
+    tags: ["Muscle", "Drag"],
+    speedLabel: "Top Speed: 270 km/h"
   },
   {
     name: "SF90 Stradale",
     brand: "Ferrari",
     image: Pic6,
     logo: FerrariLogo,
-    description: "Hybrid performance meets Italian craftsmanship."
+    description: "Hybrid performance meets Italian craftsmanship.",
+    tags: ["Hybrid", "Luxury"],
+    speedLabel: "Top Speed: 340 km/h"
   },
   {
-    name: "F-Type R",
+    name: "C-X75",
     brand: "Jaguar",
-    image: Pic7,
+    image: Pic7, 
     logo: JaguarLogo,
-    description: "Grace, space, and pace — a British sports car icon."
+    description: "A hybrid-electric masterpiece blending futuristic design with brutal performance — as seen in James Bond's Spectre.",
+    tags: ["Hybrid", "Concept", "Supercar"],
+    speedLabel: "Top Speed: 354 km/h"
   },
   {
     name: "LFA",
     brand: "Lexus",
     image: Pic8,
     logo: LexusLogo,
-    description: "A V10 symphony — Lexus' rare masterpiece of precision."
+    description: "A V10 symphony — Lexus' rare masterpiece of precision.",
+    tags: ["V10", "Iconic"],
+    speedLabel: "Top Speed: 325 km/h"
   },
   {
     name: "720S",
     brand: "McLaren",
     image: Pic9,
     logo: McLarenLogo,
-    description: "Lightweight agility and relentless speed — a true driver's machine."
+    description: "Lightweight agility and relentless speed — a true driver's machine.",
+    tags: ["Carbon Fiber", "Track Focused"],
+    speedLabel: "Top Speed: 341 km/h"
   },
   {
     name: "Mustang GTD",
     brand: "Mustang",
     image: Pic10,
     logo: MustangLogo,
-    description: "Track-ready Mustang bred from GT3 racing bloodlines."
+    description: "Track-ready Mustang bred from GT3 racing bloodlines.",
+    tags: ["GT3", "American"],
+    speedLabel: "Top Speed: 320 km/h"
   },
   {
     name: "911 Turbo S",
     brand: "Porsche",
     image: Pic11,
     logo: PorsheaLogo,
-    description: "Timeless design meets daily supercar capability."
+    description: "Timeless design meets daily supercar capability.",
+    tags: ["All-Rounder", "Icon"],
+    speedLabel: "Top Speed: 330 km/h"
   }
 ];
 
@@ -189,9 +213,17 @@ const Models = () => {
                 className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
               />
 
-              <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5">
+              <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5 space-y-2">
                 <h3 className="text-xl font-bold text-yellow-400">{model.name}</h3>
-                <p className="text-sm text-gray-300 mt-1">{model.description}</p>
+                <p className="text-sm text-gray-300">{model.description}</p>
+                <p className="text-sm text-gray-400 italic">{model.speedLabel}</p>
+                <div className="flex flex-wrap gap-2 mt-1">
+                  {model.tags?.map((tag, i) => (
+                    <span key={i} className="bg-yellow-500/20 border border-yellow-400 text-yellow-300 text-xs px-2 py-1 rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               <div className="absolute top-3 left-3 backdrop-blur-md bg-white/20 p-1.5 rounded-full shadow-inner border-white/30">
