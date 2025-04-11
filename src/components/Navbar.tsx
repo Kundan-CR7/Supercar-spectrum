@@ -2,6 +2,7 @@ import React from 'react';
 import { Menu, X } from 'lucide-react';
 import "../index.css";
 import Logo from "../assets/FinalLogo.png";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -13,11 +14,12 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex text-xl items-center space-x-8 desktop-main-menu">
-          <a href="#" className="siren-link">Ignition</a>
-          <a href="#" className="siren-link">The Garage</a>
-          <a href="#" className="siren-link">Engine Roars</a>
-          <a href="#" className="siren-link">Nitro Knowledge</a>
-        </div>
+  <Link to="/Hero" className="siren-link">Ignition</Link>
+  <Link to="/Models" className="siren-link">The Garage</Link>
+  <Link to="/SwiperCoverflow" className="siren-link">Engine Roars</Link>
+  <Link to="/Innovation" className="siren-link">Nitro Knowledge</Link>
+</div>
+
 
       </div>
     </nav>
