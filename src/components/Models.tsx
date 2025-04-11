@@ -43,12 +43,11 @@ const allModels = [
     name: "Jesko",
     brand: "Koenigsegg",
     image: Pic2,
-    logo: KoenigseggLogo, // make sure this logo variable is imported or defined
+    logo: KoenigseggLogo,
     description: "A marvel of Swedish engineering — built for both extreme speed and track performance.",
     tags: ["Hypercar", "Track & Speed"],
     speedLabel: "Top Speed: 482+ km/h"
-  }
-  ,
+  },
   {
     name: "Chiron Pur Sport",
     brand: "Bugatti",
@@ -88,7 +87,7 @@ const allModels = [
   {
     name: "C-X75",
     brand: "Jaguar",
-    image: Pic7, 
+    image: Pic7,
     logo: JaguarLogo,
     description: "A hybrid-electric masterpiece blending futuristic design with brutal performance — as seen in James Bond's Spectre.",
     tags: ["Hybrid", "Concept", "Supercar"],
@@ -134,30 +133,38 @@ const allModels = [
 
 const Models = () => {
   const [selectedBrand, setSelectedBrand] = useState("All");
-  const [visibleCount, setVisibleCount] = useState(6);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
   const uniqueBrands = ["All", ...new Set(allModels.map(model => model.brand))];
   const filteredModels = selectedBrand === "All"
     ? allModels
     : allModels.filter(model => model.brand === selectedBrand);
 
+  const totalPages = Math.ceil(filteredModels.length / itemsPerPage);
+
+  const paginatedModels = filteredModels.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
   useEffect(() => {
-    setVisibleCount(6);
+    setCurrentPage(1); // Reset to page 1 on brand change
   }, [selectedBrand]);
 
-  const handleShowMore = () => {
-    setVisibleCount(prev => prev + 3);
+  const goToPage = (page) => {
+    setCurrentPage(page);
   };
 
   return (
-    <section id="models" className="py-20 bg-[#342E37] text-white scroll-mt-20">
+    <section id="models" className="py-20 bg-[#342E37] text-white scroll-mt-20 min-h-[1000px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="mb-10 text-center">
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-yellow-500 drop-shadow-lg mb-4">
+        <div className="text-center mb-10">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-yellow-500 mb-4 drop-shadow-lg">
             LEGENDS
           </h2>
-          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
             From the adrenaline-pumping roar of a V12 to the silent surge of electric power —
             explore models that blend <span className="text-white font-semibold">passion</span>, 
             <span className="text-white font-semibold"> technology</span>, and 
@@ -165,53 +172,44 @@ const Models = () => {
           </p>
         </div>
 
-        <div className="text-3xl md:text-4xl font-extrabold text-center mb-12 tracking-wider text-white">
-          <span className="text-yellow-500">
-            <ReactTyped
-              strings={[
-                "Unleashing Power and Precision",
-                "Explore Hypercars by Brand",
-                "Refined Engineering. Raw Emotion."
-              ]}
-              typeSpeed={40}
-              backSpeed={50}
-              loop
-            />
-          </span>
+        <div className="text-3xl md:text-4xl font-extrabold text-center mb-12 text-yellow-500 tracking-wide">
+          <ReactTyped
+            strings={[
+              "Unleashing Power and Precision",
+              "Explore Hypercars by Brand",
+              "Refined Engineering. Raw Emotion."
+            ]}
+            typeSpeed={40}
+            backSpeed={50}
+            loop
+          />
         </div>
 
-        <div className="mb-12 text-center">
-          <label className="block mb-2 text-lg font-medium text-gray-300">
-            Choose Your Brand
-          </label>
+        <div className="text-center mb-12">
+          <label className="block mb-2 text-lg text-gray-300 font-medium">Choose Your Brand</label>
           <select
             value={selectedBrand}
             onChange={(e) => setSelectedBrand(e.target.value)}
-            className="px-6 py-3 text-base md:text-lg rounded-full bg-zinc-800 text-white border-2 border-yellow-500 hover:border-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
+            className="px-6 py-3 bg-zinc-800 text-white border-2 border-yellow-500 rounded-full hover:border-yellow-400 transition"
           >
             {uniqueBrands.map((brand, index) => (
-              <option key={index} value={brand} className="bg-zinc-900 text-white">
-                {brand}
-              </option>
+              <option key={index} value={brand}>{brand}</option>
             ))}
           </select>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-          {filteredModels.slice(0, visibleCount).map((model, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 ">
+          {paginatedModels.map((model, index) => (
             <motion.div
               key={index}
-              className="relative rounded-2xl overflow-hidden bg-zinc-900 shadow-lg group"
+              layout
+              className="relative bg-zinc-900 rounded-2xl overflow-hidden shadow-lg group"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <img 
-                src={model.image} 
-                alt={model.name}
-                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
-              />
+              <img src={model.image} alt={model.name} className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700" />
 
               <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5 space-y-2">
                 <h3 className="text-xl font-bold text-yellow-400">{model.name}</h3>
@@ -219,31 +217,50 @@ const Models = () => {
                 <p className="text-sm text-gray-400 italic">{model.speedLabel}</p>
                 <div className="flex flex-wrap gap-2 mt-1">
                   {model.tags?.map((tag, i) => (
-                    <span key={i} className="bg-yellow-500/20 border border-yellow-400 text-yellow-300 text-xs px-2 py-1 rounded-full">
+                    <span key={i} className="text-xs px-2 py-1 bg-yellow-500/20 text-yellow-300 border border-yellow-400 rounded-full">
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="absolute top-3 left-3 backdrop-blur-md bg-white/20 p-1.5 rounded-full shadow-inner border-white/30">
-                <img 
-                  src={model.logo} 
-                  alt={`${model.brand} logo`} 
-                  className="w-8 h-8 object-contain mix-blend-luminosity hover:mix-blend-normal transition duration-300"
-                />
+              <div className="absolute top-3 left-3 bg-white/20 backdrop-blur p-1.5 rounded-full">
+                <img src={model.logo} alt={`${model.brand} logo`} className="w-8 h-8 object-contain mix-blend-luminosity hover:mix-blend-normal transition duration-300" />
               </div>
             </motion.div>
           ))}
         </div>
 
-        {visibleCount < filteredModels.length && (
-          <div className="text-center mt-10">
+        {totalPages > 1 && (
+          <div className="flex justify-center mt-10 space-x-2">
             <button
-              onClick={handleShowMore}
-              className="px-8 py-3 rounded-full bg-yellow-500 hover:bg-yellow-400 text-black font-semibold transition"
+              disabled={currentPage === 1}
+              onClick={() => goToPage(currentPage - 1)}
+              className="px-4 py-2 bg-yellow-500 hover:bg-yellow-400 rounded-full disabled:opacity-50"
             >
-              Show More
+              Prev
+            </button>
+
+            {[...Array(totalPages)].map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => goToPage(idx + 1)}
+                className={`px-4 py-2 rounded-full ${
+                  currentPage === idx + 1
+                    ? "bg-white text-black font-bold"
+                    : "bg-zinc-700 text-white hover:bg-zinc-600"
+                }`}
+              >
+                {idx + 1}
+              </button>
+            ))}
+
+            <button
+              disabled={currentPage === totalPages}
+              onClick={() => goToPage(currentPage + 1)}
+              className="px-4 py-2 bg-yellow-500 hover:bg-yellow-400 rounded-full disabled:opacity-50"
+            >
+              Next
             </button>
           </div>
         )}
