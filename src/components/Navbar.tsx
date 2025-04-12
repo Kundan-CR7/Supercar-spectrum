@@ -14,11 +14,11 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex text-xl items-center space-x-8 desktop-main-menu">
-  <Link to="/Hero" className="siren-link">Ignition</Link>
-  <Link to="/Models" className="siren-link">The Garage</Link>
-  <Link to="/SwiperCoverflow" className="siren-link">Engine Roars</Link>
-  <Link to="/Innovation" className="siren-link">Nitro Knowledge</Link>
-</div>
+          <Link to="/Hero" className="siren-link">Ignition</Link>
+          <Link to="/Models" className="siren-link">The Garage</Link>
+          <Link to="/SwiperCoverflow" className="siren-link">Engine Roars</Link>
+          <Link to="/Innovation" className="siren-link">Nitro Knowledge</Link>
+        </div>
 
 
       </div>
