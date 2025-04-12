@@ -8,12 +8,12 @@ import "../index.css";
 const Innovation = () => {
   const cards = [
     {
-      name: "Revuelto",
+      name: "Evija",
       image: Pic1,
-      fact: "Lamborghini's first V12 hybrid — 0-60 mph in under 2.5 seconds!",
+      fact: "The Lotus Evija is the world's most powerful production car with 2,000 horsepower!",
       description:
-        "The Revuelto blends the power of a V12 engine with the efficiency of hybrid technology to deliver mind-boggling speed and precision.",
-      stats: ["Top Speed: 217", "Horsepower: 1001", "0-60 mph: 2.5"],
+        "The Lotus Evija is a fully electric hypercar that combines cutting-edge technology with exceptional performance, delivering unmatched power and precision on the road.",
+      stats: ["Top Speed: 200 mph", "Horsepower: 2000", "0-60 mph: 3.0 seconds"],
     },
     {
       name: "Tuatara",
