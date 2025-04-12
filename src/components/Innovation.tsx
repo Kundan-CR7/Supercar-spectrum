@@ -26,7 +26,7 @@ const Innovation = () => {
     {
       name: "Urus",
       image: Pic3,
-      fact: "The world’s first Super SUV combines unrivaled luxury with sports car performance.",
+      fact: "The world's first Super SUV combines unrivaled luxury with sports car performance.",
       description:
         "The Urus delivers supercar performance, thrilling power, and exceptional luxury in a muscular SUV body designed to conquer any terrain.",
       stats: ["Top Speed: 190", "Horsepower: 657", "0-60 mph: 3.5"],
@@ -36,7 +36,7 @@ const Innovation = () => {
   const [visibleStatIndex, setVisibleStatIndex] = useState(null);
 
   return (
-    <section className="py-28 bg-[url('/path/to/carbon-fiber-pattern.jpg')] bg-cover bg-center text-white">
+    <section className="py-28 bg-[url('/path/to/carbon-fiber-pattern.jpg')] bg-cover bg-center text-white" id="Innovation">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-20">
           <h2 className="text-6xl md:text-7xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-gray-400 via-silver-600 to-gray-800 text-shadow-md">

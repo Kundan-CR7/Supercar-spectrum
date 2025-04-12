@@ -54,7 +54,7 @@ const slideData = [
 const SwiperCoverflow = () => {
   const swiperRef = useRef(null);
   const [currentAudio, setCurrentAudio] = useState(null);
-  const isFirstRender = useRef(true); 
+  const isFirstRender = useRef(true);
 
   const playAudioForSlide = (index) => {
     if (currentAudio) {
@@ -70,25 +70,56 @@ const SwiperCoverflow = () => {
     }
   };
 
+  // 🔇 Pause audio when swiper section is not visible
+  useEffect(() => {
+    const section = document.getElementById("swiper");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting && currentAudio) {
+            currentAudio.pause();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (section) {
+      observer.observe(section);
+    }
+
+    return () => {
+      if (section) {
+        observer.unobserve(section);
+      }
+    };
+  }, [currentAudio]);
+
   return (
-    <div className="bg-[#10172a] min-h-screen pb-10">
+    <div className="bg-[#10172a] min-h-screen pb-10" id="swiper">
       <div className="text-center py-8">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-          Engine Symphony
+        <h1 className="text-4xl md:text-6xl metallic-boss mb-4">
+          The Symphony of Speed
         </h1>
-        <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-          Explore a handpicked collection of legendary supercars with immersive
-          audio. Experience the roar of engines and the art of design.
+
+        <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+          Dive into the world of iconic supercars — where roaring engines meet timeless design.
+          A curated showcase of power, beauty, and pure automotive emotion.
         </p>
       </div>
 
-      <div className="text-2xl md:text-3xl text-center font-medium text-gray-300 mb-4">
-        <span className="text-yellow-400">
+      <p className="italic text-gray-400 text-center mb-6 text-base md:text-lg">
+        "It’s not just the car, it’s the feeling it leaves behind."
+      </p>
+
+      <div className="text-2xl md:text-3xl text-center font-medium text-gray-200 mb-4">
+        <span className="text-yellow-400 drop-shadow-sm">
           <ReactTyped
             strings={[
-              "Click to Ignite the Roar",
-              "Feel the Power Beneath the Hood",
-              "Every Slide, A New Legend",
+              "Tap to Awaken the Beast",
+              "Legends Aren't Born — They're Engineered",
+              "Every Slide Unleashes a New Icon",
             ]}
             typeSpeed={40}
             backSpeed={50}
@@ -97,9 +128,9 @@ const SwiperCoverflow = () => {
         </span>
       </div>
 
-      <div className="text-center text-sm md:text-base text-yellow-300 bg-yellow-900/10 border border-yellow-500/30 px-4 py-2 rounded-xl max-w-md mx-auto mb-6 shadow-sm">
-        <strong className="font-medium">Note:</strong> Audio will play
-        automatically when switching between cars. Make sure your volume is on!
+      <div className="text-center text-sm md:text-base text-yellow-200 bg-yellow-900/10 border border-yellow-500/30 px-4 py-2 rounded-xl max-w-md mx-auto mb-6 shadow-sm">
+        <strong className="font-medium">Tip:</strong> Audio will auto-play with each car.
+        Turn up your speakers and feel the legacy.
       </div>
 
       <Swiper
@@ -124,7 +155,7 @@ const SwiperCoverflow = () => {
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         onSlideChange={(swiper) => {
           if (isFirstRender.current) {
-            isFirstRender.current = false; 
+            isFirstRender.current = false;
             return;
           }
           playAudioForSlide(swiper.activeIndex);

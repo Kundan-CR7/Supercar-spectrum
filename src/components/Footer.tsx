@@ -1,44 +1,44 @@
 import React from 'react';
+import insta from "../assets/social/instagram.svg"
+import github from "../assets/social/github.svg"
+import linkedin from "../assets/social/linkedin.svg"
+import portfolio from "../assets/social/portfolio.png"
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-gray-400 py-10 font-mono">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Explore</h3>
-            <ul className="space-y-2">
-              <li><a href="#models" className="hover:text-white">Ignition</a></li>
-              <li><a href="#audio" className="hover:text-white">Garage</a></li>
-              <li><a href="#innovation" className="hover:text-white">Engine Roars</a></li>
-              <li><a href="#motorsport" className="hover:text-white">Nitro Knowledge</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li><a href="#" className="hover:text-white">About Project</a></li>
-              <li><a href="#" className="hover:text-white">Meet the Developer</a></li>
-              <li><a href="#" className="hover:text-white">GitHub Repo</a></li>
-              <li><a href="#" className="hover:text-white">Feedback</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Stay Connected</h3>
-            <ul className="space-y-2">
-              <li><a href="#" className="hover:text-white">LinkedIn</a></li>
-              <li><a href="#" className="hover:text-white">Instagram</a></li>
-              <li><a href="#" className="hover:text-white">YouTube</a></li>
-              <li><a href="#" className="hover:text-white">Portfolio</a></li>
-            </ul>
-          </div>
+    <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-black text-gray-300 py-12 font-mono">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+        <div className="text-center">
+          <ul className="flex justify-center space-x-8">
+            <li>
+              <a href="" className="text-xl hover:text-white transition duration-300 flex items-center space-x-2">
+                <img src={portfolio}></img>
+                <span>Portfolio</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/forbioser_hyperface/?igsh=MXBxNm03c3dnNDJldw%3D%3D#" className="text-xl hover:text-white transition duration-300 flex items-center space-x-2">
+                <img src={insta}></img>
+                <span>Instagram</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/kundan-gupta-8a1818196/" className="text-xl hover:text-white transition duration-300 flex items-center space-x-2">
+              <img src={linkedin}></img>
+                <span>LinkedIn</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/Kundan-CR7" className="text-xl hover:text-white transition duration-300 flex items-center space-x-2">
+              <img src={github}></img>
+                <span>GitHub</span>
+              </a>
+            </li>
+          </ul>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-gray-800 text-center">
-          <p>Made by Kundan</p>
+        <div className="mt-8 pt-6 border-t border-gray-800 text-center">
+          <p className="text-sm text-gray-400">Made by Kundan | © 2025</p>
         </div>
       </div>
     </footer>

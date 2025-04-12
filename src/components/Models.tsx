@@ -149,19 +149,21 @@ const Models = () => {
   );
 
   useEffect(() => {
-    setCurrentPage(1); // Reset to page 1 on brand change
+    setCurrentPage(1); // Reset to first page when brand changes
   }, [selectedBrand]);
 
   const goToPage = (page) => {
-    setCurrentPage(page);
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
   };
 
   return (
-    <section id="models" className="py-20 bg-[#342E37] text-white scroll-mt-20 min-h-[1000px]">
+    <section id="Models" className="py-20 bg-[#342E37] text-white scroll-mt-20 min-h-[1000px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-yellow-500 mb-4 drop-shadow-lg">
+          <h2 className="text-4xl md:text-5xl font-extrabold font-serif text-yellow-500 mb-4 drop-shadow-lg">
             LEGENDS
           </h2>
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
@@ -172,7 +174,7 @@ const Models = () => {
           </p>
         </div>
 
-        <div className="text-3xl md:text-4xl font-extrabold text-center mb-12 text-yellow-500 tracking-wide">
+        {/* <div className="text-3xl md:text-4xl font-extrabold text-center mb-12 text-yellow-500 tracking-wide">
           <ReactTyped
             strings={[
               "Unleashing Power and Precision",
@@ -183,22 +185,34 @@ const Models = () => {
             backSpeed={50}
             loop
           />
-        </div>
+        </div> */}
 
         <div className="text-center mb-12">
-          <label className="block mb-2 text-lg text-gray-300 font-medium">Choose Your Brand</label>
+          <div className='text-2xl text-[#0EAD69] font-mono mb-3'>
+          <ReactTyped 
+          strings={["Choose Your Brand"]}
+          typeSpeed={60}
+          backSpeed={70}
+          backDelay={1000}
+          loop
+          >
+          </ReactTyped>
+          </div>
+          <div>
           <select
             value={selectedBrand}
             onChange={(e) => setSelectedBrand(e.target.value)}
-            className="px-6 py-3 bg-zinc-800 text-white border-2 border-yellow-500 rounded-full hover:border-yellow-400 transition"
+              className="px-6 py-3 rounded-full text-white bg-gradient-to-r from-[#0EAD69] to-[#050B5A] border-2 border-[#3B429F] shadow-xl 
+             hover:from-[#19D47D] hover:to-[#283593] transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-[#0EAD69]"
           >
             {uniqueBrands.map((brand, index) => (
               <option key={index} value={brand}>{brand}</option>
             ))}
           </select>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
           {paginatedModels.map((model, index) => (
             <motion.div
               key={index}
@@ -209,7 +223,11 @@ const Models = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <img src={model.image} alt={model.name} className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700" />
+              <img
+                src={model.image}
+                alt={model.name}
+                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+              />
 
               <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5 space-y-2">
                 <h3 className="text-xl font-bold text-yellow-400">{model.name}</h3>
@@ -225,7 +243,11 @@ const Models = () => {
               </div>
 
               <div className="absolute top-3 left-3 bg-white/20 backdrop-blur p-1.5 rounded-full">
-                <img src={model.logo} alt={`${model.brand} logo`} className="w-8 h-8 object-contain mix-blend-luminosity hover:mix-blend-normal transition duration-300" />
+                <img
+                  src={model.logo}
+                  alt={`${model.brand} logo`}
+                  className="w-8 h-8 object-contain mix-blend-luminosity hover:mix-blend-normal transition duration-300"
+                />
               </div>
             </motion.div>
           ))}
@@ -233,35 +255,19 @@ const Models = () => {
 
         {totalPages > 1 && (
           <div className="flex justify-center mt-10 space-x-2">
-            <button
-              disabled={currentPage === 1}
-              onClick={() => goToPage(currentPage - 1)}
-              className="px-4 py-2 bg-yellow-500 hover:bg-yellow-400 rounded-full disabled:opacity-50"
-            >
-              Prev
-            </button>
-
-            {[...Array(totalPages)].map((_, idx) => (
+            {[...Array(totalPages)].map((_, i) => (
               <button
-                key={idx}
-                onClick={() => goToPage(idx + 1)}
-                className={`px-4 py-2 rounded-full ${
-                  currentPage === idx + 1
-                    ? "bg-white text-black font-bold"
-                    : "bg-zinc-700 text-white hover:bg-zinc-600"
+                key={i}
+                onClick={() => goToPage(i + 1)}
+                className={`px-4 py-2 rounded-full font-semibold ${
+                  currentPage === i + 1
+                    ? "bg-yellow-500 text-black"
+                    : "bg-zinc-700 text-white hover:bg-yellow-400"
                 }`}
               >
-                {idx + 1}
+                {i + 1}
               </button>
             ))}
-
-            <button
-              disabled={currentPage === totalPages}
-              onClick={() => goToPage(currentPage + 1)}
-              className="px-4 py-2 bg-yellow-500 hover:bg-yellow-400 rounded-full disabled:opacity-50"
-            >
-              Next
-            </button>
           </div>
         )}
       </div>

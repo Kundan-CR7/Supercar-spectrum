@@ -62,7 +62,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div ref={heroRef} className="relative h-screen z-10">
+    <div ref={heroRef} className="relative h-screen z-10" id='Hero'>
       <div className="absolute inset-0 h-full m-0 overflow-hidden">
         <video 
           ref={videoRef}
