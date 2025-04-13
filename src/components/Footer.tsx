@@ -11,26 +11,26 @@ const Footer = () => {
         <div className="text-center">
           <ul className="flex justify-center space-x-8">
             <li>
-              <a href="" className="text-xl hover:text-white transition duration-300 flex items-center space-x-2">
-                <img src={portfolio}></img>
+              <a href="#" className="text-xl hover:text-white transition duration-300 flex items-center space-x-2">
+                <img src={portfolio} className='h-14 w-14'></img>
                 <span>Portfolio</span>
               </a>
             </li>
             <li>
               <a href="https://www.instagram.com/forbioser_hyperface/?igsh=MXBxNm03c3dnNDJldw%3D%3D#" className="text-xl hover:text-white transition duration-300 flex items-center space-x-2">
-                <img src={insta}></img>
+                <img src={insta} className='h-14 w-14'></img>
                 <span>Instagram</span>
               </a>
             </li>
             <li>
               <a href="https://www.linkedin.com/in/kundan-gupta-8a1818196/" className="text-xl hover:text-white transition duration-300 flex items-center space-x-2">
-              <img src={linkedin}></img>
+              <img src={linkedin} className='h-14 w-14'></img>
                 <span>LinkedIn</span>
               </a>
             </li>
             <li>
               <a href="https://github.com/Kundan-CR7" className="text-xl hover:text-white transition duration-300 flex items-center space-x-2">
-              <img src={github}></img>
+              <img src={github} className='h-14 w-14'></img>
                 <span>GitHub</span>
               </a>
             </li>
