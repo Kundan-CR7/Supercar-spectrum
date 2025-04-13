@@ -200,25 +200,25 @@ const Models = () => {
           </div>
           <div>
           <select
-  value={selectedBrand}
-  onChange={(e) => setSelectedBrand(e.target.value)}
-  className="px-6 py-3 rounded-xl text-[#00FFFF] bg-[#1A1A40] border border-[#3B429F] shadow-md text-center
-             hover:bg-[#2C2C6C] transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-[#00FFFF] focus:ring-opacity-40
-             appearance-none cursor-pointer"
->
-  <option disabled value="">
-    Select a Brand
-  </option>
-  {uniqueBrands.map((brand, index) => (
-    <option
-      key={index}
-      value={brand}
-      className="text-black bg-white dark:text-white dark:bg-[#1E1E2F] text-center"
-    >
-      {brand}
-    </option>
-  ))}
-</select>
+            value={selectedBrand}
+            onChange={(e) => setSelectedBrand(e.target.value)}
+            className="px-6 py-3 rounded-xl text-[#00FFFF] bg-[#1A1A40] border border-[#3B429F] shadow-md text-center
+                      hover:bg-[#2C2C6C] transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-[#00FFFF] focus:ring-opacity-40
+                      appearance-none cursor-pointer"
+          >
+            <option disabled value="">
+              Select a Brand
+            </option>
+            {uniqueBrands.map((brand, index) => (
+              <option
+                key={index}
+                value={brand}
+                className="text-black bg-white dark:text-white dark:bg-[#1E1E2F] text-center"
+              >
+                {brand}
+              </option>
+            ))}
+          </select>
 
 
           </div>
@@ -255,12 +255,13 @@ const Models = () => {
               </div>
 
               <div className="absolute top-3 left-3 bg-white/20 backdrop-blur p-1.5 rounded-full">
-                <img
-                  src={model.logo}
-                  alt={`${model.brand} logo`}
-                  className="w-8 h-8 object-contain mix-blend-luminosity hover:mix-blend-normal transition duration-300"
-                />
-              </div>
+  <img
+    src={model.logo}
+    alt={`${model.brand} logo`}
+    className="w-8 h-8 object-contain mix-blend-multiply rounded-full transition duration-300"
+  />
+</div>
+
             </motion.div>
           ))}
         </div>
