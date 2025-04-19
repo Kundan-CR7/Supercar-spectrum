@@ -16,35 +16,35 @@ import Pic5 from "./Lexusss.jpg";
 const slideData = [
   {
     image: Pic1,
-    audio: "/audio/Hellcat.mp3",
+    audio: "/audio/Challenger Hellcat.mp3",
     name: "Dodge Hellcat",
     description:
       "A muscle beast with raw power and aggressive looks. Known for its supercharged V8 and thrilling sound.",
   },
   {
     image: Pic2,
-    audio: "/audio/Carrera.mp3",
+    audio: "/audio/Carrera GT.mp3",
     name: "Porsche Carrera GT",
     description:
       "A legendary V10 hypercar that blends performance with elegance. A true collector’s dream.",
   },
   {
     image: Pic3,
-    audio: "/audio/Aventador.mp3",
+    audio: "/audio/Aventador_SVJ.mp3",
     name: "Lamborghini Aventador",
     description:
       "An Italian masterpiece. Bold, loud, and fast. The Aventador commands attention on any street.",
   },
   {
     image: Pic4,
-    audio: "/audio/Mustang.mp3",
+    audio: "/audio/Mustang GT350R.mp3",
     name: "Ford Mustang",
     description:
       "An American icon. The Mustang is the perfect mix of classic muscle and modern engineering.",
   },
   {
     image: Pic5,
-    audio: "/audio/Lexus.mp3",
+    audio: "/audio/Lexus LFA.mp3",
     name: "Lexus LFA",
     description:
       "One of the most refined V10s ever made. Precision, beauty, and performance in perfect balance.",
