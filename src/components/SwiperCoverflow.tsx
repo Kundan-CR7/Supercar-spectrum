@@ -12,6 +12,9 @@ import Pic2 from "./CarreraGT.jpg";
 import Pic3 from "./Lambo.jpg";
 import Pic4 from "./Mustang.jpg";
 import Pic5 from "./Lexusss.jpg";
+import Pic6 from "./Supra.jpg";
+import Pic7 from "./720S.jpg";
+
 
 const slideData = [
   {
@@ -49,6 +52,21 @@ const slideData = [
     description:
       "One of the most refined V10s ever made. Precision, beauty, and performance in perfect balance.",
   },
+  {
+    image: Pic6,
+    audio: "/audio/Toyota Supra.mp3",
+    name: "Toyota GR Supra",
+    description:
+      "A sleek sports car with a turbocharged engine, known for its sharp handling and iconic design.",
+  },
+  {
+    image: Pic7,
+    audio: "/audio/McLaren-720S.mp3",
+    name: "720S",
+    description:
+      "A lightweight supercar with a twin-turbo V8, offering unmatched speed and precision handling.",
+  }
+  
 ];
 
 const SwiperCoverflow = () => {
@@ -137,7 +155,7 @@ const SwiperCoverflow = () => {
         effect="coverflow"
         grabCursor={true}
         centeredSlides={true}
-        initialSlide={2}
+        initialSlide={3}
         speed={600}
         preventClicks={true}
         slidesPerView={"auto"}
