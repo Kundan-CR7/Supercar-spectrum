@@ -22,11 +22,11 @@ const Navbar = () => {
           <a href="#Innovation" className="siren-link">Nitro Knowledge</a>
         </div>
 
-        <div className="md:hidden mr-6 text-white">
+        {/* <div className="md:hidden mr-6 text-white">
           <button onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X size={32} /> : <Menu size={32} />}
           </button>
-        </div>
+        </div> */}
       </div>
     </nav>
   );

@@ -21,7 +21,7 @@ const Innovation = () => {
       fact: "SSC Tuatara reached a top speed of 282.9 mph in 2021, breaking world records.",
       description:
         "Designed to defy the laws of physics, the Tuatara is engineered for record-breaking speed and unprecedented aerodynamics.",
-      stats: ["Top Speed: 282.9", "Horsepower: 1750", "0-60 mph: 2.5"],
+      stats: ["Top Speed: 282.9 mph", "Horsepower: 1750", "0-60 mph: 2.5 seconds"],
     },
     {
       name: "Urus",
@@ -29,11 +29,15 @@ const Innovation = () => {
       fact: "The world's first Super SUV combines unrivaled luxury with sports car performance.",
       description:
         "The Urus delivers supercar performance, thrilling power, and exceptional luxury in a muscular SUV body designed to conquer any terrain.",
-      stats: ["Top Speed: 190", "Horsepower: 657", "0-60 mph: 3.5"],
+      stats: ["Top Speed: 190 mph", "Horsepower: 657", "0-60 mph: 3.5 seconds"],
     },
   ];
 
   const [visibleStatIndex, setVisibleStatIndex] = useState(null);
+
+  const handleStatToggle = (index) => {
+    setVisibleStatIndex(visibleStatIndex === index ? null : index);
+  };
 
   return (
     <section className="py-28 bg-[url('/path/to/carbon-fiber-pattern.jpg')] bg-cover bg-center text-white" id="Innovation">
@@ -58,20 +62,17 @@ const Innovation = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-
+              {/* Left Side (Text & Stats) */}
               <motion.div layout className="flex flex-col gap-8">
-                <h3 className="text-4xl font-bold text-gray-100 hover:text-blue-400 transition-colors duration-300">
+                <h3 className="text-4xl font-bold text-gray-100 hover:text-blue-400 transition-colors duration-300 text-shadow-md">
                   {card.name}
                 </h3>
-
                 <p className="text-gray-200 text-lg sm:text-xl leading-relaxed bg-gray-900 p-4 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
                   {card.description}
                 </p>
 
                 <button
-                  onClick={() =>
-                    setVisibleStatIndex(visibleStatIndex === index ? null : index)
-                  }
+                  onClick={() => handleStatToggle(index)}
                   className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded-xl shadow-lg transition-all duration-300 self-center"
                 >
                   {visibleStatIndex === index ? "Hide Stats" : "View Performance Stats"}
@@ -93,6 +94,7 @@ const Innovation = () => {
                         const num = parseFloat(value);
                         let barWidth = 0;
 
+                        // Determine bar width based on stat type
                         if (label.toLowerCase().includes("top speed")) {
                           barWidth = (num / 300) * 100;
                         } else if (label.toLowerCase().includes("horsepower")) {
@@ -128,10 +130,9 @@ const Innovation = () => {
                 </AnimatePresence>
               </motion.div>
 
-
+              {/* Right Side (Image & Fact) */}
               <div className="group perspective focus:outline-none">
                 <div className="relative w-full h-96 transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180 group-focus:rotate-y-180 cursor-pointer shadow-xl hover:shadow-blue-500/30 rounded-2xl">
-
                   <div className="absolute inset-0 rounded-2xl overflow-hidden backface-hidden">
                     <img
                       src={card.image}
@@ -139,7 +140,6 @@ const Innovation = () => {
                       className="w-full h-full object-cover"
                     />
                   </div>
-
 
                   <div className="absolute inset-0 rounded-2xl text-center p-8 transform rotate-y-180 backface-hidden flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm border border-white/20">
                     <h4 className="text-2xl font-semibold text-blue-500 mb-4">
