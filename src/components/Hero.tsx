@@ -17,7 +17,6 @@ const Hero = () => {
     }
   };
 
-  // Auto play on user interaction
   useEffect(() => {
     const handleUserInteraction = () => {
       const vid = videoRef.current;
@@ -33,7 +32,6 @@ const Hero = () => {
     return () => window.removeEventListener("click", handleUserInteraction);
   }, []);
 
-  // Pause video when Hero is not in viewport
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -46,7 +44,7 @@ const Hero = () => {
         }
       },
       {
-        threshold: 0.4 // Trigger when 10% of the element is visible
+        threshold: 0.4 
       }
     );
 
@@ -106,7 +104,6 @@ const Hero = () => {
           <button
             onClick={toggleMute}
             className="neon-btn p-3"
-            title={isMuted ? "Sound Off" : "Sound On"}
           >
             <SquarePower size={32} className={`${isMuted ? 'text-gray-400' : 'text-yellow-400'}`} />
           </button>

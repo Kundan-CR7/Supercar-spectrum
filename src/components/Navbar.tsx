@@ -5,7 +5,6 @@ import Logo from "../assets/Logo100.png";
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="fixed w-full z-50 bg-[#101311]/90 backdrop-blur-sm">
@@ -22,11 +21,6 @@ const Navbar = () => {
           <a href="#Innovation" className="siren-link">Nitro Knowledge</a>
         </div>
 
-        {/* <div className="md:hidden mr-6 text-white">
-          <button onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X size={32} /> : <Menu size={32} />}
-          </button>
-        </div> */}
       </div>
     </nav>
   );
