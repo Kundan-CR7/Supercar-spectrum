@@ -4,6 +4,7 @@ import Pic1 from "../assets/Lotus.jpg";
 import Pic2 from "../assets/TuaTara_SSC.jpg";
 import Pic3 from "../assets/Urus.jpg";
 import "../index.css";
+import { ChevronDown } from "lucide-react";
 
 const Innovation = () => {
   const cards = [
@@ -40,10 +41,10 @@ const Innovation = () => {
   };
 
   return (
-    <section className="py-28 bg-[url('/path/to/carbon-fiber-pattern.jpg')] bg-cover bg-center text-white" id="Innovation">
+    <section className="py-28 bg-[url('/path/to/carbon-fiber-pattern.jpg')] bg-cover bg-center text-white relative" id="Innovation">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-20">
-          <h2 className="text-6xl md:text-7xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-gray-400 via-silver-600 to-gray-800 text-shadow-md">
+          <h2 className="text-6xl md:text-7xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-gray-400 via-silver-600 to-gray-800 text-shadow-md metallic-boss">
             Nitro Knowledge
           </h2>
           <p className="text-gray-300 text-xl sm:text-2xl max-w-3xl mx-auto font-mono">
@@ -63,10 +64,10 @@ const Innovation = () => {
               viewport={{ once: true }}
             >
               <motion.div layout className="flex flex-col gap-8">
-                <h3 className="text-4xl font-bold text-gray-100 hover:text-blue-400 transition-colors duration-300 text-shadow-md">
+                <h3 className="text-4xl font-bold text-gray-100 hover:text-blue-400 transition-colors duration-300 text-shadow-md font-mono">
                   {card.name}
                 </h3>
-                <p className="text-gray-200 text-lg sm:text-xl bg-gray-900 p-4 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <p className="text-gray-200 text-lg sm:text-xl bg-gray-900 p-4 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 font-serif">
                   {card.description}
                 </p>
 
@@ -154,6 +155,9 @@ const Innovation = () => {
           ))}
         </div>
       </div>
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+          <ChevronDown size={32} />
+        </div>
     </section>
   );
 };

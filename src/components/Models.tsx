@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ReactTyped } from "react-typed";
 import { motion } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 
 // Car Images
 import Pic1 from "/cars/Pic1.jpg";
@@ -161,8 +162,8 @@ const Models = () => {
   };
 
   return (
-    <section id="Models" className="py-20 bg-gradient-to-b from-[#0e0e0e] via-[#1c1c1c] to-[#0e0e0e] text-white scroll-mt-20 min-h-[1000px]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="Models" className="relative py-20 bg-gradient-to-b from-[#0e0e0e] via-[#1c1c1c] to-[#0e0e0e] text-white scroll-mt-20 min-h-[1000px]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
 
         <div className="text-center mb-12">
           <h2 className="text-5xl md:text-6xl font-extrabold text-cyan-400 drop-shadow-[0_0_10px_#00FFFF] font-['Orbitron'] mb-6">
@@ -269,7 +270,11 @@ const Models = () => {
             ))}
           </div>
         )}
+        
       </div>
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+          <ChevronDown size={32} />
+        </div>
     </section>
   );
 };

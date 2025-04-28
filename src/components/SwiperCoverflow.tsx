@@ -6,6 +6,7 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "./swiper.css";
 import { ReactTyped } from "react-typed";
+import { ChevronDown } from "lucide-react";
 
 import Pic1 from "./Hellcatt.jpg";
 import Pic2 from "./CarreraGT.jpg";
@@ -114,21 +115,17 @@ const SwiperCoverflow = () => {
   }, [currentAudio]);
 
   return (
-    <div className="bg-[#10172a] min-h-screen pb-10" id="swiper">
+    <div className="bg-[#10172a] min-h-screen pb-10 relative" id="swiper">
       <div className="text-center py-8">
         <h1 className="text-4xl md:text-6xl metallic-boss mb-4">
           The Symphony of Speed
         </h1>
 
-        <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+        <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto font-mono">
           Dive into the world of iconic supercars — where roaring engines meet timeless design.
           A curated showcase of power, beauty, and pure automotive emotion.
         </p>
       </div>
-
-      <p className="italic text-gray-400 text-center mb-6 text-base md:text-lg">
-        "It’s not just the car, it’s the feeling it leaves behind."
-      </p>
 
       <div className="text-2xl md:text-3xl text-center font-medium text-gray-200 mb-4">
         <span className="text-yellow-400 drop-shadow-sm">
@@ -191,6 +188,9 @@ const SwiperCoverflow = () => {
         ))}
         <div className="swiper-pagination" />
       </Swiper>
+        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-50">
+          <ChevronDown size={32} color="white"/>
+        </div>
     </div>
   );
 };

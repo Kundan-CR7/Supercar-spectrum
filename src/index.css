@@ -177,3 +177,26 @@
 .backface-hidden {
   backface-visibility: hidden;
 }
+
+.metallic-boss1 {
+  background: linear-gradient(to right, #b8b8b8 0%, #c0c0c0 50%, #2f2f2f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background-size: 200% 100%;
+  animation: shimmer 10s infinite linear;
+  font-family: "Orbitron", sans-serif;
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  50% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

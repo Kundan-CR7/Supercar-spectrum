@@ -83,7 +83,7 @@
   font-weight: 800;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  /* background-size: 200% 100%; */
+  background-size: 200% 100%;
   animation: shimmer 10s infinite linear;
   font-family: "Orbitron", sans-serif;
 }
