@@ -46,7 +46,7 @@ const Innovation = () => {
           <h2 className="text-6xl md:text-7xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-gray-400 via-silver-600 to-gray-800 text-shadow-md">
             Nitro Knowledge
           </h2>
-          <p className="text-gray-300 text-xl sm:text-2xl leading-relaxed max-w-3xl mx-auto">
+          <p className="text-gray-300 text-xl sm:text-2xl max-w-3xl mx-auto font-mono">
             Buckle up for a journey through high-octane engineering and blazing speed. Uncover the secrets behind supercars that are built to break records and exceed limits.
           </p>
         </div>
@@ -62,20 +62,23 @@ const Innovation = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              {/* Left Side (Text & Stats) */}
               <motion.div layout className="flex flex-col gap-8">
                 <h3 className="text-4xl font-bold text-gray-100 hover:text-blue-400 transition-colors duration-300 text-shadow-md">
                   {card.name}
                 </h3>
-                <p className="text-gray-200 text-lg sm:text-xl leading-relaxed bg-gray-900 p-4 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <p className="text-gray-200 text-lg sm:text-xl bg-gray-900 p-4 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
                   {card.description}
                 </p>
 
                 <button
                   onClick={() => handleStatToggle(index)}
-                  className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded-xl shadow-lg transition-all duration-300 self-center"
+                  className="relative overflow-hidden py-2 px-2 rounded-xl border-2 border-transparent bg-blue-500 text-white shadow-lg transition-all duration-300 group"
                 >
-                  {visibleStatIndex === index ? "Hide Stats" : "View Performance Stats"}
+                  <span className="relative z-10 font-mono">
+                    {visibleStatIndex === index ? "Hide Stats" : "View Performance Stats"}
+                  </span>
+
+                  <span className="absolute inset-0 bg-gradient-to-r from-[#00f0ff] to-blue-600 transform -translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-in-out"></span>
                 </button>
 
                 <AnimatePresence initial={false}>
@@ -94,7 +97,6 @@ const Innovation = () => {
                         const num = parseFloat(value);
                         let barWidth = 0;
 
-                        // Determine bar width based on stat type
                         if (label.toLowerCase().includes("top speed")) {
                           barWidth = (num / 300) * 100;
                         } else if (label.toLowerCase().includes("horsepower")) {
@@ -108,7 +110,7 @@ const Innovation = () => {
                             key={i}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ delay: i * 0.1 }}
+                            transition={{ delay: 0.1 }}
                           >
                             <div className="flex justify-between text-sm text-gray-300 mb-1">
                               <span>{label}</span>
@@ -116,7 +118,7 @@ const Innovation = () => {
                             </div>
                             <div className="w-full h-3 bg-gray-700 rounded-full">
                               <motion.div
-                                className="h-3 bg-blue-500 rounded-full"
+                                className="h-3 bg-[#00f0ff] rounded-full"
                                 initial={{ width: 0 }}
                                 animate={{ width: `${barWidth}%` }}
                                 transition={{ duration: 1 }}
@@ -130,7 +132,6 @@ const Innovation = () => {
                 </AnimatePresence>
               </motion.div>
 
-              {/* Right Side (Image & Fact) */}
               <div className="group perspective focus:outline-none">
                 <div className="relative w-full h-96 transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180 group-focus:rotate-y-180 cursor-pointer shadow-xl hover:shadow-blue-500/30 rounded-2xl">
                   <div className="absolute inset-0 rounded-2xl overflow-hidden backface-hidden">

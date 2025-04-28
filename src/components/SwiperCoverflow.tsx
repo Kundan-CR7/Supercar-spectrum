@@ -88,7 +88,6 @@ const SwiperCoverflow = () => {
     }
   };
 
-  // 🔇 Pause audio when swiper section is not visible
   useEffect(() => {
     const section = document.getElementById("swiper");
 
@@ -156,26 +155,20 @@ const SwiperCoverflow = () => {
         grabCursor={true}
         centeredSlides={true}
         initialSlide={3}
-        speed={600}
-        preventClicks={true}
+        speed={500}
         slidesPerView={"auto"}
         onClick={(swiper) => swiper.slideTo(swiper.clickedIndex)}
         pagination={{ clickable: true, el: ".swiper-pagination" }}
         coverflowEffect={{
           rotate: 0,
-          stretch: 80,
-          depth: 350,
+          stretch: 40,
+          depth: 500,
           modifier: 1,
           slideShadows: true,
         }}
         modules={[EffectCoverflow, Pagination]}
         className="swiper"
-        onSwiper={(swiper) => (swiperRef.current = swiper)}
         onSlideChange={(swiper) => {
-          if (isFirstRender.current) {
-            isFirstRender.current = false;
-            return;
-          }
           playAudioForSlide(swiper.activeIndex);
         }}
       >
@@ -190,7 +183,7 @@ const SwiperCoverflow = () => {
               <p className="title text-white text-xl md:text-2xl font-semibold mt-3 tracking-wide">
                 {slide.name}
               </p>
-              <p className="description text-sm md:text-base text-gray-300 mt-1 max-w-xs mx-auto leading-relaxed">
+              <p className="description text-sm md:text-base text-gray-300 mt-1 mx-auto leading-relaxed">
                 {slide.description}
               </p>
             </div>

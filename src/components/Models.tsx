@@ -151,7 +151,7 @@ const Models = () => {
   
 
   useEffect(() => {
-    setCurrentPage(1); // Reset page on brand change
+    setCurrentPage(1); 
   }, [selectedBrand]);
 
   const goToPage = (page) => {
@@ -164,7 +164,6 @@ const Models = () => {
     <section id="Models" className="py-20 bg-gradient-to-b from-[#0e0e0e] via-[#1c1c1c] to-[#0e0e0e] text-white scroll-mt-20 min-h-[1000px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Title */}
         <div className="text-center mb-12">
           <h2 className="text-5xl md:text-6xl font-extrabold text-cyan-400 drop-shadow-[0_0_10px_#00FFFF] font-['Orbitron'] mb-6">
             LEGENDS
@@ -177,7 +176,6 @@ const Models = () => {
           </p>
         </div>
 
-        {/* Dropdown */}
         <div className="text-center mb-12">
           <div className='text-2xl text-cyan-400 font-["Orbitron"] mb-3'>
             <ReactTyped 
@@ -190,29 +188,28 @@ const Models = () => {
           </div>
 
           <select
-  value={selectedBrand}
-  onChange={(e) => setSelectedBrand(e.target.value)}
-  className="px-6 py-3 rounded-xl text-[#00FFFF] font-bold bg-[#1A1A40] border border-[#3B429F] shadow-md text-center
-            hover:bg-[#2C2C6C] transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-[#00FFFF] focus:ring-opacity-40
-            appearance-none cursor-pointer"
->
-  <option disabled value="" className="font-bold text-gray-400">
-    Select a Brand
-  </option>
-  {uniqueBrands.map((brand, index) => (
-    <option
-      key={index}
-      value={brand}
-      className="text-black dark:text-white font-bold bg-white dark:bg-[#1E1E2F] text-center"
-    >
-      {brand}
-    </option>
-  ))}
-</select>
+            value={selectedBrand}
+            onChange={(e) => setSelectedBrand(e.target.value)}
+            className="px-6 py-3 rounded-xl text-[#00FFFF] font-bold bg-[#1A1A40] border border-[#3B429F] shadow-md text-center
+                      hover:bg-[#2C2C6C] transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-[#00FFFF] focus:ring-opacity-40
+                      appearance-none cursor-pointer"
+          >
+            <option disabled value="" className="font-bold text-gray-400">
+              Select a Brand
+            </option>
+            {uniqueBrands.map((brand, index) => (
+              <option
+                key={index}
+                value={brand}
+                className="text-black dark:text-white font-bold bg-white dark:bg-[#1E1E2F] text-center"
+                        >
+                {brand}
+              </option>
+            ))}
+          </select>
 
         </div>
 
-        {/* Models Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
           {paginatedModels.map((model, index) => (
             <motion.div
@@ -243,7 +240,6 @@ const Models = () => {
                 </div>
               </div>
 
-              {/* Brand logo top corner */}
               <div className="absolute top-3 left-3 bg-white/20 backdrop-blur p-1.5 rounded-full">
                 <img
                   src={model.logo}
@@ -256,7 +252,6 @@ const Models = () => {
           ))}
         </div>
 
-        {/* Pagination */}
         {totalPages > 1 && (
           <div className="flex justify-center mt-12 space-x-3">
             {[...Array(totalPages)].map((_, i) => (

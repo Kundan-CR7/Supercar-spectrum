@@ -144,9 +144,8 @@
   }
 }
 
-/* Change underline color to glowing nitro on hover */
 .desktop-main-menu a:hover::before {
-  background-color: #00f0ff; /* Glowing cyan underline */
+  background-color: #00f0ff;
 }
 
 .neon-btn {
