@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { ReactTyped } from "react-typed";
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import "../index.css";
 
-// Car Images
 import Pic1 from "/cars/Pic1.jpg";
 import Pic2 from "/cars/Pic2.jpg";
 import Pic3 from "/cars/Pic3.jpg";
@@ -16,7 +16,6 @@ import Pic9 from "/cars/Pic9.jpg";
 import Pic10 from "/cars/Pic10.jpg";
 import Pic11 from "/cars/Pic11.jpg";
 
-// Brand Logos
 import LamborghiniLogo from "../assets/brands/Lamborghini.svg";
 import SSCLogo from "../assets/brands/SSC.svg";
 import BugattiLogo from "../assets/brands/Bugatti.svg";
@@ -162,13 +161,14 @@ const Models = () => {
   };
 
   return (
-    <section id="Models" className="relative py-20 bg-gradient-to-b from-[#0e0e0e] via-[#1c1c1c] to-[#0e0e0e] text-white scroll-mt-20 min-h-[1000px]">
+    <section id="Models" className="relative py-20 bg-[#050a30] text-white scroll-mt-20 min-h-[1000px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
 
         <div className="text-center mb-12">
-          <h2 className="text-5xl md:text-6xl font-extrabold text-cyan-400 drop-shadow-[0_0_10px_#00FFFF] font-['Orbitron'] mb-6">
-            LEGENDS
-          </h2>
+        <h2 className="text-5xl md:text-6xl font-extrabold text-cyan-400 drop-shadow-[0_0_10px_#00FFFF] font-['Orbitron'] mb-6 glowing-text">
+          LEGENDS
+        </h2>
+
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto font-mono">
             From the adrenaline-pumping roar of a V12 to the silent surge of electric power — 
             explore models that blend <span className="text-white font-semibold">passion</span>, 
