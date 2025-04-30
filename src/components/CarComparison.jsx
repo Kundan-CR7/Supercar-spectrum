@@ -31,26 +31,26 @@ const CarComparison = () => {
       icon: Rocket,
       title: "Speed Demons",
       fact: "The Bugatti Chiron Super Sport 300+ holds the record for the fastest production car, reaching 304.773 mph (490.484 km/h).",
-      highlight: "304.773 MPH"
+      highlight: "304.773 MPH",
     },
     {
       icon: Zap,
       title: "Power Unleashed",
       fact: "The Rimac Nevera produces a staggering 1,914 horsepower, making it the most powerful production car ever made.",
-      highlight: "1,914 HP"
+      highlight: "1,914 HP",
     },
     {
       icon: Clock,
       title: "Lightning Fast",
       fact: "The Tesla Roadster can accelerate from 0-60 mph in just 1.9 seconds, faster than most Formula 1 cars.",
-      highlight: "1.9s 0-60"
+      highlight: "1.9s 0-60",
     },
     {
       icon: Award,
       title: "Rare Gems",
       fact: "Only 500 units of the Ferrari LaFerrari were ever produced, making it one of the most exclusive supercars in history.",
-      highlight: "500 Units"
-    }
+      highlight: "500 Units",
+    },
   ];
 
   const extractSpecifications = (info) => {
@@ -208,13 +208,19 @@ const CarComparison = () => {
   };
 
   const SpecItem = ({ icon: Icon, label, value }) => (
-    <div className="flex items-center gap-4 p-4 bg-black/40 rounded-xl border border-gray-800 hover:border-gray-600 transition-all duration-300 group">
-      <div className="p-3 bg-gray-800/50 rounded-lg group-hover:bg-gray-700/50 transition-colors duration-300">
-        <Icon className="w-6 h-6 text-gray-300" />
+    <div className="flex items-center gap-4 p-4 bg-cyan-500/10 rounded-xl border border-cyan-500/30 hover:border-cyan-500 transition-all duration-300 group">
+      <div className="p-3 bg-cyan-500/20 rounded-lg group-hover:bg-cyan-500/30 transition-colors duration-300">
+        <Icon className="w-6 h-6 text-cyan-400" />
       </div>
       <div className="flex-1">
-        <div className="text-sm text-gray-400 font-medium">{label}</div>
-        <div className={`text-lg font-bold ${value === "N/A" ? "text-gray-500" : "text-white"}`}>
+        <div className="text-sm text-cyan-400 font-medium font-mono">
+          {label}
+        </div>
+        <div
+          className={`text-lg font-bold ${
+            value === "N/A" ? "text-gray-500" : "text-white"
+          } font-['Orbitron']`}
+        >
           {value}
         </div>
       </div>
@@ -222,28 +228,27 @@ const CarComparison = () => {
   );
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white p-8 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(255,255,255,0.1)_0%,_transparent_50%)] opacity-20" />
-      <div className="absolute inset-0 bg-[linear-gradient(45deg,_rgba(255,255,255,0.05)_25%,_transparent_25%,_transparent_75%,_rgba(255,255,255,0.05)_75%)] bg-[length:20px_20px] opacity-10" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a] to-[#0a0a0a]" />
-      
+    <div className="min-h-screen bg-gradient-to-br from-[#1a1a1a] via-[#2a2a2a] to-[#1a1a1a] text-white p-8 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(0,255,255,0.1)_0%,_transparent_50%)] opacity-30 animate-pulse" />
+      <div className="absolute inset-0 bg-[linear-gradient(45deg,_rgba(0,255,255,0.05)_25%,_transparent_25%,_transparent_75%,_rgba(0,255,255,0.05)_75%)] bg-[length:20px_20px] opacity-20" />
+
       <div className="max-w-7xl mx-auto relative z-10">
-        <h2 className="text-6xl text-center md:text-7xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] via-[#cccccc] to-[#ffffff] text-shadow-lg">
+        <h2 className="text-6xl md:text-7xl font-extrabold mb-6 text-transparent text-center bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 text-shadow-lg font-['Orbitron'] metallic-boss">
           Car Comparison
         </h2>
-        <p className="text-gray-400 text-xl sm:text-2xl max-w-3xl mx-auto font-mono text-center mb-6">
-          Compare specifications, performance, and features of your favorite supercars
+        <p className="text-gray-300 text-xl sm:text-2xl max-w-3xl mx-auto font-mono text-center mb-12">
+          Compare specifications, performance, and features of your favorite
+          supercars
         </p>
 
-        <div className="flex flex-col md:flex-row gap-4 justify-center mb-12">
+        <div className="flex flex-col md:flex-row gap-6 justify-center mb-12">
           <div className="flex-1 max-w-md">
             <input
               type="text"
               placeholder="Enter first car (e.g., Lamborghini Revuelto)"
               value={car1}
               onChange={(e) => setCar1(e.target.value)}
-              className="w-full p-4 rounded-xl bg-black/40 backdrop-blur-sm text-white border border-gray-800 focus:border-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600/20 transition-all duration-300"
+              className="w-full p-4 rounded-xl bg-black/40 backdrop-blur-sm text-white border border-cyan-500/30 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300 font-mono"
             />
           </div>
           <div className="flex-1 max-w-md">
@@ -252,15 +257,15 @@ const CarComparison = () => {
               placeholder="Enter second car (e.g., Ferrari SF90)"
               value={car2}
               onChange={(e) => setCar2(e.target.value)}
-              className="w-full p-4 rounded-xl bg-black/40 backdrop-blur-sm text-white border border-gray-800 focus:border-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600/20 transition-all duration-300"
+              className="w-full p-4 rounded-xl bg-black/40 backdrop-blur-sm text-white border border-cyan-500/30 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300 font-mono"
             />
           </div>
           <button
             onClick={handleCompare}
             disabled={loading}
-            className="relative overflow-hidden bg-gradient-to-r from-[#1a1a1a] to-black text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 flex items-center justify-center gap-2 min-w-[200px] disabled:opacity-50 disabled:cursor-not-allowed group border border-gray-800 hover:border-gray-600 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+            className="relative overflow-hidden bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 flex items-center justify-center gap-2 min-w-[200px] disabled:opacity-50 disabled:cursor-not-allowed group border border-cyan-500/30 hover:border-cyan-500 shadow-[0_0_20px_rgba(0,255,255,0.1)] hover:shadow-[0_0_30px_rgba(0,255,255,0.2)] font-['Orbitron']"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-gray-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="absolute inset-0 rounded-xl border border-white/5" />
             {loading ? (
               <>
@@ -277,7 +282,7 @@ const CarComparison = () => {
         </div>
 
         {error && (
-          <div className="bg-red-500/10 border border-red-500/50 text-red-400 p-4 rounded-xl text-center mb-8 max-w-2xl mx-auto">
+          <div className="bg-red-500/10 border border-red-500/50 text-red-400 p-4 rounded-xl text-center mb-8 max-w-2xl mx-auto font-mono">
             {error}
           </div>
         )}
@@ -285,28 +290,33 @@ const CarComparison = () => {
         {!car1Data && !car2Data && (
           <div className="space-y-12">
             <div className="text-center">
-              <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] via-[#cccccc] to-[#ffffff] mb-4">
+              <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 mb-4 font-['Orbitron']">
                 Supercar World Records
               </h3>
-              <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-                Discover the incredible achievements of the world's most extraordinary supercars
+              <p className="text-gray-300 mb-8 max-w-2xl mx-auto font-mono">
+                Discover the incredible achievements of the world's most
+                extraordinary supercars
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {supercarFacts.map((fact, index) => (
                 <div
                   key={index}
-                  className="group bg-black/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-800 hover:border-gray-600 transition-all duration-300"
+                  className="group bg-black/40 backdrop-blur-sm rounded-2xl p-8 border border-cyan-500/30 hover:border-cyan-500 transition-all duration-300"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="p-3 bg-gray-800/50 rounded-xl group-hover:bg-gray-700/50 transition-colors duration-300">
-                      <fact.icon className="w-8 h-8 text-gray-300" />
+                    <div className="p-3 bg-cyan-500/20 rounded-xl group-hover:bg-cyan-500/30 transition-colors duration-300">
+                      <fact.icon className="w-8 h-8 text-cyan-400" />
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold text-gray-300 mb-2">{fact.title}</h4>
-                      <p className="text-gray-400 mb-3">{fact.fact}</p>
-                      <div className="text-2xl font-bold text-white bg-gray-800/50 px-4 py-2 rounded-lg inline-block">
+                      <h4 className="text-xl font-bold text-cyan-400 mb-2 font-['Orbitron']">
+                        {fact.title}
+                      </h4>
+                      <p className="text-gray-300 mb-3 font-mono">
+                        {fact.fact}
+                      </p>
+                      <div className="text-2xl font-bold text-white bg-cyan-500/20 px-4 py-2 rounded-lg inline-block font-['Orbitron']">
                         {fact.highlight}
                       </div>
                     </div>
@@ -314,21 +324,13 @@ const CarComparison = () => {
                 </div>
               ))}
             </div>
-
-            <div className="text-center mt-12">
-              <div className="inline-flex items-center gap-2 text-gray-400">
-                <ArrowRight className="w-5 h-5" />
-                <span>Enter two supercars above to compare their specifications</span>
-              </div>
-            </div>
           </div>
         )}
 
         {car1Data && car2Data && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Car 1 */}
-            <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-800 hover:border-gray-600 transition-all duration-300">
-              <h3 className="text-3xl font-bold text-gray-300 mb-6 text-center">
+            <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-8 border border-cyan-500/30 hover:border-cyan-500 transition-all duration-300">
+              <h3 className="text-3xl font-bold text-cyan-400 mb-6 text-center font-['Orbitron']">
                 {car1.toUpperCase()}
               </h3>
               {car1Data.image && (
@@ -370,9 +372,8 @@ const CarComparison = () => {
               </div>
             </div>
 
-            {/* Car 2 */}
-            <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-800 hover:border-gray-600 transition-all duration-300">
-              <h3 className="text-3xl font-bold text-gray-300 mb-6 text-center">
+            <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-8 border border-cyan-500/30 hover:border-cyan-500 transition-all duration-300">
+              <h3 className="text-3xl font-bold text-cyan-400 mb-6 text-center font-['Orbitron']">
                 {car2.toUpperCase()}
               </h3>
               {car2Data.image && (

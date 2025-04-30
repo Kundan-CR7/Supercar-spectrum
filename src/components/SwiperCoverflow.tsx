@@ -117,9 +117,9 @@ const SwiperCoverflow = () => {
   return (
     <div className="bg-[#10172a] min-h-screen pb-10 relative" id="swiper">
       <div className="text-center py-8">
-        <h1 className="text-4xl md:text-6xl metallic-boss mb-4">
-          The Symphony of Speed
-        </h1>
+      <h2 className="text-6xl md:text-7xl font-extrabold mb-6 text-transparent text-center bg-clip-text bg-gradient-to-r from-gray-400 via-silver-600 to-gray-800 text-shadow-md metallic-boss1">
+      The Symphony of Speed
+        </h2>
 
         <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto font-mono">
           Dive into the world of iconic supercars — where roaring engines meet timeless design.

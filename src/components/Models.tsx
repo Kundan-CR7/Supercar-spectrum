@@ -231,16 +231,16 @@ const Models = () => {
   };
 
   return (
-    <section id="Models" className="relative py-20 bg-gradient-to-br from-[#050a30] via-[#0a1a3a] to-[#050a30] text-white scroll-mt-20 min-h-[1000px]">
+    <section id="Models" className="relative py-20 bg-[#1a1a1a] text-white scroll-mt-20 min-h-[1000px]">
       {/* Animated Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(0,255,255,0.1)_0%,_transparent_50%)] opacity-20 animate-pulse" />
       <div className="absolute inset-0 bg-[linear-gradient(45deg,_rgba(0,255,255,0.05)_25%,_transparent_25%,_transparent_75%,_rgba(0,255,255,0.05)_75%)] bg-[length:20px_20px] opacity-10" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-5xl md:text-6xl font-extrabold text-cyan-400 drop-shadow-[0_0_10px_#00FFFF] font-['Orbitron'] mb-6 glowing-text">
-            LEGENDS
-          </h2>
+        <h2 className="text-6xl md:text-7xl font-extrabold mb-6 text-transparent text-center bg-clip-text bg-gradient-to-r from-gray-400 via-silver-600 to-gray-800 text-shadow-md metallic-boss1">
+          LEGENDS
+        </h2>
 
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto font-mono">
             From the adrenaline-pumping roar of a V12 to the silent surge of electric power — 
