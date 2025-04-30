@@ -67,20 +67,21 @@ const Innovation = () => {
                 <h3 className="text-4xl font-bold text-gray-100 hover:text-blue-400 transition-colors duration-300 text-shadow-md font-mono">
                   {card.name}
                 </h3>
-                <p className="text-gray-200 text-lg sm:text-xl bg-gray-900 p-4 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 font-serif">
+                <p className="text-gray-200 text-lg sm:text-xl bg-black/40 p-6 rounded-xl shadow-lg backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-300 font-mono">
                   {card.description}
                 </p>
 
-                <button
+                <motion.button
                   onClick={() => handleStatToggle(index)}
-                  className="relative overflow-hidden py-2 px-2 rounded-xl border-2 border-transparent bg-blue-500 text-white shadow-lg transition-all duration-300 group"
+                  className="relative overflow-hidden py-3 px-6 rounded-xl border-2 border-transparent bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-white shadow-lg transition-all duration-300 group"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <span className="relative z-10 font-mono">
                     {visibleStatIndex === index ? "Hide Stats" : "View Performance Stats"}
                   </span>
-
-                  <span className="absolute inset-0 bg-gradient-to-r from-[#00f0ff] to-blue-600 transform -translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-in-out"></span>
-                </button>
+                  <span className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 to-blue-500/30 transform -translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-in-out"></span>
+                </motion.button>
 
                 <AnimatePresence initial={false}>
                   {visibleStatIndex === index && (
@@ -156,8 +157,8 @@ const Innovation = () => {
         </div>
       </div>
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <ChevronDown size={32} />
-        </div>
+        <ChevronDown size={32} />
+      </div>
     </section>
   );
 };
