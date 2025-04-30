@@ -44,7 +44,7 @@ const Innovation = () => {
     <section className="py-28 bg-[url('/path/to/carbon-fiber-pattern.jpg')] bg-cover bg-center text-white relative" id="Innovation">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-20">
-          <h2 className="text-6xl md:text-7xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-gray-400 via-silver-600 to-gray-800 text-shadow-md metallic-boss">
+          <h2 className="text-6xl md:text-7xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-gray-400 via-silver-600 to-gray-800 text-shadow-md metallic-boss1">
             Nitro Knowledge
           </h2>
           <p className="text-gray-300 text-xl sm:text-2xl max-w-3xl mx-auto font-mono">

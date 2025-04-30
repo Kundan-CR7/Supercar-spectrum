@@ -6,6 +6,7 @@ import Models from './components/Models';
 import Innovation from './components/Innovation';
 import Footer from './components/Footer';
 import SwiperCoverflow from "./components/SwiperCoverflow"
+import CarComparison from './components/CarComparison';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Models />
       <SwiperCoverflow/>
       <Innovation />
+      <CarComparison/>
       <Footer />
     </div>
   );
