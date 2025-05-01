@@ -14,10 +14,10 @@ function App() {
     <div className="min-h-screen bg-black text-white">
       <Navbar />
       <Hero />
+      <CarComparison/>
       <Models />
       <SwiperCoverflow/>
       <Innovation />
-      <CarComparison/>
       <Footer />
     </div>
   );
